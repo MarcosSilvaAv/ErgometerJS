@@ -27,6 +27,8 @@
   "scripts": {
     "build:api": "tsc -p api && npm run build:compress",
     "build:compress": "uglifyjs -c --output api/lib/ergometer.min.js api/lib/ergometer.js",
+    "build:copy_api_copytonext_js": "copyfiles -f api/lib/ergometer.js demos/next_js/public/libs",
+    "build:copy_api_nextjs": "npm run build:api && npm run build:copy_api_copytonext_js",
     "build:copy_api_copytowebapp": "copyfiles -f api/lib/ergometer.js ../WebErgometer/WebApp/html/script/lib",
     "build:copy_api_copytowebapp_min": "copyfiles -f api/lib/ergometer.min.js ../WebErgometer/WebApp/html/script/lib",
     "build:copy_api_copytowebapp_ts": "copyfiles -f api/lib/ergometer.d.ts ../WebErgometer/WebApp/html/typescripts",
